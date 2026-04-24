@@ -1,0 +1,21 @@
+ResponseID,RespondentID,Question1,Question2,Question3,Question4,Question5,Date,Location,Rating
+R001,U001,Very Satisfied,5,Yes,Excellent,Will Recommend,2023-01-15,New York,5
+R002,U002,Satisfied,4,No,Good,Might Recommend,01/20/2023,Los Angeles,4
+R003,U003,Neutral,3,Yes,Fair,Not Sure,2023-01-22,Chicago,3
+R004,U004,Very Dissatisfied,1,No,Poor,Will Not Recommend,2023-02-01,Houston,1
+R005,U005,Satisfied,4,Yes,Good,Will Recommend,02/15/2023,Phoenix,4
+R006,U006,Very Satisfied,5,Yes,Excellent,Definitely Recommend,2023-02-20,Seattle,5
+R007,U007,Neutral,,Yes,Fair,Might Recommend,03/01/2023,Boston,3
+R008,U008,Satisfied,4,No,Good,Will Recommend,03/05/2023,Miami,4
+R009,U009,Very Dissatisfied,2,No,Poor,Will Not Recommend,2023-03-15,Denver,2
+R010,U010,Very Satisfied,5,Yes,Excellent,Definitely Recommend,03/20/2023,Atlanta,5
+R011,U011,Satisfied,4,No,Good,Will Recommend,04/01/2023,Dallas,4
+R012,U012,Neutral,3,Yes,Fair,Not Sure,04/05/2023,Philadelphia,3
+R013,U013,Very Satisfied,5,Yes,Excellent,Definitely Recommend,04/10/2023,Portland,5
+R014,U014,Dissatisfied,2,No,Poor,Will Not Recommend,04/15/2023,San Diego,2
+R015,U015,Satisfied,4,Yes,Good,Will Recommend,04/20/2023,Minneapolis,4
+R016,U016,Very Satisfied,5,Yes,Excellent,Definitely Recommend,05/01/2023,San Francisco,5
+R017,U017,Neutral,3,No,Fair,Might Recommend,05/05/2023,Austin,3
+R018,U018,Satisfied,4,Yes,Good,Will Recommend,05/10/2023,Nashville,4
+R019,U019,Very Dissatisfied,1,No,Poor,Will Not Recommend,05/15/2023,Charlotte,1
+R020,U020,Very Satisfied,5,Yes,Excellent,Definitely Recommend,05/20/2023,Phoenix,5

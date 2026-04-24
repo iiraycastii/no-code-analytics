@@ -1,0 +1,61 @@
+ReviewID,ProductID,CustomerName,Rating,ReviewDate,Comment,VerifiedPurchase,Category,Price
+1,PROD001,John D.,5,2023-01-15,"Great product! Highly recommend",Yes,Electronics,$49.99
+2,PROD002,Jane Smith,4,01/20/2023,"Good value for money",Yes,Home & Kitchen,$29.99
+3,PROD001,Bob Johnson,3,2023-01-22,"Average quality",No,Electronics,49.99
+4,PROD003,Mary Williams,,2023-02-01,"Excellent product! Would buy again",Yes,Clothing,$19.99
+5,PROD002,Michael Brown,2,,,No,Home & Kitchen,$29.99
+6,PROD004,Sarah Davis,5,02/15/2023,"Amazing! Best purchase ever",Yes,Electronics,$89.99
+7,PROD003,James Miller,4,2023-02-20,"Nice product but expensive",No,Clothing,24.99
+8,PROD005,Linda Wilson,1,03/01/2023,"Terrible product! Waste of money",Yes,Books,$12.99
+9,PROD001,William Moore,5,03/05/2023,"Perfect! Exactly what I needed",Yes,Electronics,$49.99
+10,PROD004,Jennifer Taylor,3,,,"Okay product but has issues",No,Electronics,$79.99
+11,PROD002,Thomas Anderson,4,2023-03-15,"Good quality, fast shipping",Yes,Home & Kitchen,$29.99
+12,PROD006,Patricia Thomas,2,03/20/2023,"Not worth the price",No,Sports,$39.99
+13,PROD003,Christopher Jackson,5,2023-04-01,"Love it! Great design",Yes,Clothing,$19.99
+14,PROD005,Nancy White,3,04/05/2023,"Average book, nothing special",No,Books,$14.99
+15,PROD007,Donald Harris,4,2023-04-10,"Good sports equipment",Yes,Sports,$59.99
+16,PROD004,Barbara Martin,5,04/15/2023,"Outstanding quality!",Yes,Electronics,$89.99
+17,PROD002,Paul Thompson,1,04/20/2023,"Broke after one week",No,Home & Kitchen,$29.99
+18,PROD006,Karen Garcia,4,2023-05-01,"Great for workouts",Yes,Sports,$39.99
+19,PROD001,Steven Martinez,3,05/05/2023,"Decent but overpriced",No,Electronics,$49.99
+20,PROD008,Donna Robinson,5,05/10/2023,"Excellent book! Must read",Yes,Books,$9.99
+21,PROD003,Ronald Clark,2,05/15/2023,"Poor quality material",No,Clothing,$19.99
+22,PROD007,Lisa Rodriguez,4,2023-05-20,"Good value sports gear",Yes,Sports,$59.99
+23,PROD009,Anthony Lewis,5,06/01/2023,"Amazing toy! Kids love it",Yes,Toys,$34.99
+24,PROD005,Michelle Lee,3,06/05/2023,"Okay book, not great",No,Books,$12.99
+25,PROD004,Edward Walker,4,06/10/2023,"Good electronics, fair price",Yes,Electronics,$79.99
+26,PROD010,Kimberly Hall,2,06/15/2023,"Disappointing quality",No,Beauty,$24.99
+27,PROD006,Joseph Allen,5,06/20/2023,"Perfect sports equipment",Yes,Sports,$39.99
+28,PROD009,Sharon Young,4,07/01/2023,"Great toy for kids",Yes,Toys,$34.99
+29,PROD001,David Hernandez,3,07/05/2023,"Average electronics",No,Electronics,$49.99
+30,PROD011,Betty King,5,07/10/2023,"Fantastic beauty product",Yes,Beauty,$29.99
+31,PROD008,Richard Wright,4,07/15/2023,"Good read, interesting",Yes,Books,$9.99
+32,PROD007,Helen Lopez,2,07/20/2023,"Sports gear broke easily",No,Sports,$59.99
+33,PROD012,Mark Hill,5,08/01/2023,"Excellent automotive product",Yes,Automotive,$149.99
+34,PROD009,Frank Adams,3,08/05/2023,"Toy is okay",No,Toys,$34.99
+35,PROD004,Dorothy Baker,4,08/10/2023,"Good electronics overall",Yes,Electronics,$89.99
+36,PROD010,Jeffrey Nelson,1,08/15/2023,"Worst beauty product ever",No,Beauty,$24.99
+37,PROD013,Charles Turner,5,08/20/2023,"Great garden tool",Yes,Garden,$44.99
+38,PROD011,Susan Roberts,4,09/01/2023,"Nice beauty item",Yes,Beauty,$29.99
+39,PROD006,Ronald Carter,3,09/05/2023,"Sports equipment is fine",No,Sports,$39.99
+40,PROD012,Deborah Phillips,5,09/10/2023,"Perfect for my car",Yes,Automotive,$149.99
+41,PROD014,Joseph Campbell,2,09/15/2023,"Poor food quality",No,Grocery,$15.99
+42,PROD009,Margaret Parker,4,09/20/2023,"Kids love this toy",Yes,Toys,$34.99
+43,PROD015,William Evans,5,10/01/2023,"Excellent pet product",Yes,Pet Supplies,$39.99
+44,PROD010,Helen Edwards,3,10/05/2023,"Beauty product is average",No,Beauty,$24.99
+45,PROD013,Robert Collins,4,10/10/2023,"Good garden equipment",Yes,Garden,$44.99
+46,PROD016,Dorothy Stewart,1,10/15/2023,"Terrible grocery item",No,Grocery,$15.99
+47,PROD012,Thomas Sanchez,5,10/20/2023,"Best automotive accessory",Yes,Automotive,$149.99
+48,PROD017,Linda Morris,4,11/01/2023,"Nice office supply",Yes,Office Supplies,$19.99
+49,PROD014,George Rogers,2,11/05/2023,"Food was stale",No,Grocery,$15.99
+50,PROD015,Elizabeth Reed,5,11/10/2023,"Perfect for my pet",Yes,Pet Supplies,$39.99
+51,PROD018,James Cook,3,11/15/2023,"Okay health product",No,Health,$29.99
+52,PROD013,Morgan Morgan,4,11/20/2023,"Good garden tools",Yes,Garden,$44.99
+53,PROD019,Donna Bell,5,12/01/2023,"Excellent phone accessory",Yes,Electronics,$19.99
+54,PROD016,Kevin Murphy,1,12/05/2023,"Worst grocery purchase",No,Grocery,$15.99
+55,PROD017,Christopher Bailey,4,12/10/2023,"Good office item",Yes,Office Supplies,$19.99
+56,PROD020,Amanda Rivera,5,12/15/2023,"Amazing fitness product",Yes,Sports,$79.99
+57,PROD018,Frank Cook,2,12/20/2023,"Health product didn't work",No,Health,$29.99
+58,PROD015,Lisa Anderson,4,12/25/2023,"Great pet supplies",Yes,Pet Supplies,$39.99
+59,PROD019,Michael Wilson,3,12/30/2023,"Phone accessory is okay",No,Electronics,$19.99
+60,PROD020,David Taylor,5,12/31/2023,"Best fitness equipment",Yes,Sports,$79.99

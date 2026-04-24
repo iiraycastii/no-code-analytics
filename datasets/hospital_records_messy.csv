@@ -1,0 +1,61 @@
+PatientID,Name,Age,Gender,AdmissionDate,DischargeDate,Diagnosis,DoctorID,Department,BloodPressure,HeartRate,Temperature,Insurance,RoomNumber,BillAmount
+P001,John Smith,45,Male,2023-01-15,2023-01-18,Pneumonia,DOC001,Emergency,120/80,72,98.6,BlueCross,101A,$2,500.00
+P002,Jane Doe,female,32,01/20/2023,01/22/2023,Fracture,DOC002,Orthopedics,130/85,68,99.1,Aetna,205B,$4,200.50
+P003,Robert Johnson,,Male,2023-01-22,2023-01-25,Diabetes,DOC003,Internal Med,140/90,75,101.2,Medicare,310C,$1,800.00
+P004,Mary Williams,58,Female,2023-02-01,,Heart Disease,DOC001,Cardiology,150/95,80,98.8,BlueCross,415D,$8,500.75
+P005,Michael Brown,29,Male,2023-02-01,2023-02-03,Asthma,DOC004,Emergency,115/75,65,97.9,,102A,$1,200.00
+P006,Sarah Davis,41,Female,02/15/2023,02/18/2023,Migraine,DOC005,Neurology,125/82,70,98.4,Aetna,208B,$2,800.25
+P007,James Miller,67,Male,2023-02-20,2023-02-28,Stroke,DOC001,Cardiology,160/100,85,99.5,Medicare,412C,$15,000.00
+P008,Linda Wilson,Female,33,2023-03-01,2023-03-02,Food Poisoning,DOC006,Emergency,110/70,60,98.2,BlueCross,103A,$800.50
+P009,William Moore,52,Male,03/05/2023,03/08/2023,Appendicitis,DOC002,Surgery,135/88,72,99.8,Aetna,307B,$6,500.00
+P010,Jennifer Taylor,28,Female,,Gallstones,DOC007,Surgery,125/80,68,98.6,Medicare,209C,$7,200.75
+P011,Thomas Anderson,39,Male,2023-03-15,2023-03-17,Kidney Stone,DOC008,Urology,130/85,70,99.0,BlueCross,311A,$3,100.00
+P012,Patricia Thomas,61,Female,03/20/2023,03/25/2023,Arthritis,DOC003,Internal Med,140/90,75,98.7,Aetna,415B,$2,900.50
+P013,Christopher Jackson,46,Male,2023-04-01,2023-04-05,Colon Cancer,DOC009,Oncology,145/92,78,99.3,Medicare,512C,$25,000.00
+P014,Nancy White,Female,25,04/05/2023,04/06/2023,Flu,DOC004,Emergency,115/75,65,98.1,BlueCross,104A,$600.00
+P015,Donald Harris,71,Male,2023-04-10,2023-04-20,Pneumonia,DOC001,Internal Med,150/95,80,100.2,Aetna,418D,$3,500.75
+P016,Barbara Martin,37,Female,04/15/2023,04/17/2023,UTI,DOC010,Urology,120/80,68,98.4,Medicare,212A,$1,400.00
+P017,Paul Thompson,54,Male,04/20/2023,,Heart Attack,DOC001,Cardiology,170/110,90,99.7,BlueCross,520C,$35,000.00
+P018,Karen Garcia,Female,42,05/01/2023,05/03/2023,Allergies,DOC005,Neurology,118/76,66,98.3,Aetna,108B,$1,800.50
+P019,Steven Martinez,48,Male,05/05/2023,05/08/2023,Diabetes,DOC003,Internal Med,140/90,75,101.5,Medicare,315C,$2,200.00
+P020,Donna Robinson,Female,35,05/10/2023,05/12/2023,Migraine,DOC005,Neurology,125/82,70,98.6,BlueCross,210A,$2,500.75
+P021,Ronald Clark,63,Male,05/15/2023,05/20/2023,Stroke,DOC001,Cardiology,160/100,85,99.8,Aetna,425D,$18,000.00
+P022,Lisa Rodriguez,Female,29,05/20/2023,05/21/2023,Asthma,DOC004,Emergency,115/75,65,97.8,Medicare,106A,$1,100.00
+P023,Anthony Lewis,51,Male,06/01/2023,06/04/2023,Appendicitis,DOC002,Surgery,135/88,72,99.9,BlueCross,308B,$6,800.50
+P024,Mark Hill,44,Male,06/05/2023,06/07/2023,Kidney Stone,DOC008,Urology,130/85,70,99.1,Aetna,312A,$3,300.00
+P025,Elizabeth Walker,Female,57,06/10/2023,06/15/2023,Colon Cancer,DOC009,Oncology,145/92,78,99.4,Medicare,518C,$28,000.00
+P026,Joseph Allen,38,Male,06/15/2023,06/16/2023,Food Poisoning,DOC006,Emergency,110/70,60,98.2,BlueCross,105A,$750.75
+P027,Sharon Young,Female,26,07/01/2023,07/02/2023,Flu,DOC004,Emergency,115/75,65,98.1,Aetna,103A,$550.00
+P028,David Hernandez,49,Male,07/05/2023,07/09/2023,Pneumonia,DOC001,Internal Med,150/95,80,100.1,Medicare,417B,$3,200.50
+P029,Betty King,Female,33,07/10/2023,07/12/2023,UTI,DOC010,Urology,120/80,68,98.5,BlueCross,211A,$1,300.00
+P030,Richard Wright,Male,65,07/15/2023,07/25/2023,Heart Disease,DOC001,Cardiology,155/98,82,99.6,Aetna,422D,$12,000.00
+P031,Helen Lopez,Female,40,07/20/2023,07/22/2023,Arthritis,DOC003,Internal Med,140/90,75,98.8,Medicare,314C,$2,600.75
+P032,Frank Adams,Male,31,08/01/2023,08/03/2023,Migraine,DOC005,Neurology,125/82,70,98.4,BlueCross,209A,$2,400.00
+P033,Dorothy Baker,Female,55,08/05/2023,08/08/2023,Diabetes,DOC003,Internal Med,140/90,75,101.3,Aetna,416B,$2,800.50
+P034,Jeffrey Nelson,Male,47,08/10/2023,08/12/2023,Gallstones,DOC007,Surgery,125/80,68,98.6,Medicare,307A,$6,900.00
+P035,Charles Turner,Male,69,08/15/2023,,Stroke,DOC001,Cardiology,165/105,88,99.9,BlueCross,523C,$32,000.00
+P036,Susan Roberts,Female,36,08/20/2023,08/21/2023,Allergies,DOC005,Neurology,118/76,66,98.3,Aetna,107A,$1,600.75
+P037,Robert Collins,Male,43,09/01/2023,09/04/2023,Appendicitis,DOC002,Surgery,135/88,72,99.7,Medicare,309B,$6,500.00
+P038,Dorothy Stewart,Female,59,09/05/2023,09/10/2023,Colon Cancer,DOC009,Oncology,145/92,78,99.5,BlueCross,519C,$26,000.00
+P039,Thomas Sanchez,Male,27,09/10/2023,09/11/2023,Asthma,DOC004,Emergency,115/75,65,97.9,Aetna,104A,$900.50
+P040,Linda Morris,Female,41,09/15/2023,09/18/2023,Kidney Stone,DOC008,Urology,130/85,70,99.0,Medicare,313A,$3,400.00
+P041,George Rogers,Male,53,09/20/2023,09/24/2023,Pneumonia,DOC001,Internal Med,150/95,80,100.0,BlueCross,421B,$3,600.00
+P042,Elizabeth Reed,Female,30,10/01/2023,10/02/2023,Food Poisoning,DOC006,Emergency,110/70,60,98.2,Aetna,102A,$700.75
+P043,James Cook,Male,66,10/05/2023,10/15/2023,Heart Attack,DOC001,Cardiology,175/115,95,100.3,Medicare,527D,$42,000.00
+P044,Morgan Morgan,Female,34,10/10/2023,10/12/2023,UTI,DOC010,Urology,120/80,68,98.4,BlueCross,214A,$1,500.00
+P045,Donna Bell,Female,48,10/15/2023,10/18/2023,Arthritis,DOC003,Internal Med,140/90,75,98.9,Aetna,418B,$2,700.50
+P046,Kevin Murphy,Male,56,10/20/2023,,Diabetes,DOC003,Internal Med,145/95,78,101.8,Medicare,424C,$3,100.00
+P047,Christopher Bailey,Male,39,11/01/2023,11/03/2023,Migraine,DOC005,Neurology,125/82,70,98.5,BlueCross,211A,$2,300.75
+P048,Amanda Rivera,Female,45,11/05/2023,11/08/2023,Gallstones,DOC007,Surgery,125/80,68,98.6,Aetna,308B,$7,100.00
+P049,Frank Cook,Male,62,11/10/2023,11/20/2023,Stroke,DOC001,Cardiology,160/100,85,99.8,Medicare,526C,$30,000.00
+P050,Lisa Anderson,Female,37,11/15/2023,11/17/2023,Flu,DOC004,Emergency,115/75,65,98.1,BlueCross,105A,$580.50
+P051,Michael Wilson,Male,50,11/20/2023,11/23/2023,Colon Cancer,DOC009,Oncology,145/92,78,99.6,Aetna,521C,$27,000.00
+P052,David Taylor,Male,42,12/01/2023,12/04/2023,Pneumonia,DOC001,Internal Med,150/95,80,100.2,Medicare,419B,$3,800.00
+P053,Alice Johnson,Female,28,12/05/2023,12/06/2023,Allergies,DOC005,Neurology,118/76,66,98.3,BlueCross,106A,$1,400.75
+P054,Robert Williams,Male,60,12/10/2023,12/18/2023,Heart Disease,DOC001,Cardiology,155/98,82,99.7,Aetna,423D,$13,500.00
+P055,Mary Brown,Female,35,12/15/2023,12/16/2023,UTI,DOC010,Urology,120/80,68,98.4,Medicare,213A,$1,200.00
+P056,James Davis,Male,46,12/20/2023,12/23/2023,Diabetes,DOC003,Internal Med,140/90,75,101.6,BlueCross,420B,$2,900.50
+P057,Jennifer Miller,Female,58,12/25/2023,,Arthritis,DOC003,Internal Med,145/95,78,99.0,Aetna,425C,$2,500.00
+P058,William Wilson,Male,31,12/30/2023,12/31/2023,Food Poisoning,DOC006,Emergency,110/70,60,98.2,Medicare,104A,$650.75
+P059,Elizabeth Moore,Female,44,01/05/2024,01/08/2024,Kidney Stone,DOC008,Urology,130/85,70,99.1,BlueCross,315A,$3,500.00
+P060,Charles Taylor,Male,67,01/10/2024,01/20/2024,Stroke,DOC001,Cardiology,165/105,88,100.0,Aetna,528D,$35,000.00

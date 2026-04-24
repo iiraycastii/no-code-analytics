@@ -1,0 +1,21 @@
+OrderID,CustomerID,OrderDate,ProductID,ProductName,Quantity,UnitPrice,Total,Shipping,Status,PaymentMethod
+ORD001,C001,2023-01-15,P001,Laptop,1,999.99,999.99,15.99,Delivered,Credit Card
+ORD002,C002,01/20/2023,P002,Wireless Mouse,2,29.99,59.98,5.99,Processing,PayPal
+ORD003,C003,2023-01-22,P003,Office Chair,1,149.99,149.99,25.99,Shipped,Credit Card
+ORD004,C004,2023-02-01,P004,Monitor,2,299.99,599.98,,Delivered,Debit Card
+ORD005,C005,02/15/2023,P005,Keyboard,3,79.99,239.97,8.99,Cancelled,Credit Card
+ORD006,C006,2023-02-20,P006,Webcam,1,89.99,89.99,12.99,Processing,PayPal
+ORD007,C007,03/01/2023,P007,Headphones,2,129.99,259.98,15.99,Shipped,Credit Card
+ORD008,C008,03/05/2023,P008,External HDD,1,79.99,79.99,10.99,Delivered,Debit Card
+ORD009,C009,2023-03-15,P009,Power Strip,4,19.99,79.96,7.99,Processing,Credit Card
+ORD010,C010,03/20/2023,P010,HDMI Cable,5,12.99,64.95,5.99,Cancelled,PayPal
+ORD011,C011,04/01/2023,P011,Router,1,89.99,89.99,14.99,Shipped,Credit Card
+ORD012,C012,04/05/2023,P012,Switch,2,49.99,99.98,11.99,Delivered,Debit Card
+ORD013,C013,04/10/2023,P013,Printer,1,299.99,299.99,,Processing,Credit Card
+ORD014,C014,04/15/2023,P014,Ink Cartridge,3,45.99,137.97,9.99,Shipped,PayPal
+ORD015,C015,04/20/2023,P015,Paper Ream,5,8.99,44.95,6.99,Delivered,Credit Card
+ORD016,C016,05/01/2023,P016,Stapler,2,15.99,31.98,5.99,Processing,Debit Card
+ORD017,C017,05/05/2023,P017,Notebook,10,5.99,59.90,8.99,Cancelled,Credit Card
+ORD018,C018,05/10/2023,P018,Calculator,3,25.99,77.97,7.99,Shipped,PayPal
+ORD019,C019,05/15/2023,P019,USB Hub,4,24.99,99.96,9.99,Delivered,Credit Card
+ORD020,C020,05/20/2023,P020,Ethernet Cable,6,9.99,59.94,5.99,Processing,Debit Card

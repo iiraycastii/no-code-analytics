@@ -1,0 +1,60 @@
+1001,2023-01-15,John Smith,Laptop,1,999.99,0.1,899.99,Alice Smith,North,Enterprise
+1002,01/20/2023,Jane Doe,Desktop PC,2,1299.50,0.05,2469.05,Bob Johnson,South,Individual
+1003,2023-01-22,Robert Johnson,Tablet,1,399.99,0.2,319.99,Carol Williams,East,Enterprise
+1004,,Mary Williams,Monitor,2,299.99,0.1,539.98,David Brown,West,Individual
+1005,2023-02-01,Michael Brown,Keyboard,3,79.99,,239.97,Alice Smith,North,Small Business
+1006,02/15/2023,Sarah Davis,Mouse,5,29.99,0.15,127.46,Bob Johnson,South,Individual
+1007,2023-02-20,James Miller,Laptop,1,1099.99,0.25,824.99,Carol Williams,East,Enterprise
+1008,03/01/2023,Linda Wilson,Desktop PC,1,1399.50,,1399.50,David Brown,West,Small Business
+1009,03/05/2023,William Moore,Tablet,2,349.99,0.1,629.98,Alice Smith,North,Individual
+1010,,Jennifer Taylor,Monitor,1,329.99,0.05,313.49,Bob Johnson,South,Enterprise
+1011,2023-03-15,Thomas Anderson,Keyboard,4,89.99,0.2,287.97,Carol Williams,East,Individual
+1012,03/20/2023,Patricia Thomas,Mouse,6,24.99,0.1,134.94,David Brown,West,Small Business
+1013,04/01/2023,Christopher Jackson,Laptop,1,1199.99,0.15,1019.99,Alice Smith,North,Enterprise
+1014,04/05/2023,Nancy White,Desktop PC,3,1499.50,0.1,4048.65,Bob Johnson,South,Individual
+1015,04/10/2023,Donald Harris,Tablet,1,399.99,,399.99,Carol Williams,East,Small Business
+1016,2023-04-15,Barbara Martin,Monitor,2,279.99,0.25,419.98,David Brown,West,Enterprise
+1017,04/20/2023,Paul Thompson,Keyboard,2,69.99,0.05,132.98,Alice Smith,North,Individual
+1018,05/01/2023,Karen Garcia,Mouse,3,34.99,0.2,83.97,Bob Johnson,South,Small Business
+1019,05/05/2023,Steven Martinez,Laptop,2,999.99,0.1,1799.98,Carol Williams,East,Enterprise
+1020,05/10/2023,Donna Robinson,Desktop PC,1,1599.50,0.15,1359.58,David Brown,West,Individual
+1021,05/15/2023,Ronald Clark,Tablet,1,429.99,,429.99,Alice Smith,North,Small Business
+1022,05/20/2023,Lisa Rodriguez,Monitor,3,259.99,0.1,701.97,Bob Johnson,South,Enterprise
+1023,06/01/2023,Anthony Lewis,Keyboard,5,74.99,0.25,281.21,Carol Williams,East,Individual
+1024,,Michelle Lee,Mouse,4,29.99,0.05,113.96,David Brown,West,Small Business
+1025,06/05/2023,Edward Walker,Laptop,1,1299.99,0.2,1039.99,Alice Smith,North,Enterprise
+1026,06/10/2023,Kimberly Hall,Desktop PC,2,1399.50,0.1,2519.10,Bob Johnson,South,Individual
+1027,06/15/2023,Joseph Allen,Tablet,2,379.99,0.15,645.98,Carol Williams,East,Small Business
+1028,06/20/2023,Sharon Young,Monitor,1,299.99,,299.99,David Brown,West,Enterprise
+1029,07/01/2023,David Hernandez,Keyboard,3,84.99,0.05,242.21,Alice Smith,North,Individual
+1030,07/05/2023,Betty King,Mouse,7,19.99,0.25,104.94,Bob Johnson,South,Small Business
+1031,07/10/2023,Richard Wright,Laptop,1,1099.99,0.1,989.99,Carol Williams,East,Enterprise
+1032,07/15/2023,Helen Lopez,Desktop PC,1,1499.50,0.2,1199.60,David Brown,West,Individual
+1033,07/20/2023,Mark Hill,Tablet,3,349.99,0.05,997.47,Alice Smith,North,Small Business
+1034,08/01/2023,Donald Scott,Monitor,2,319.99,0.15,543.98,Bob Johnson,South,Enterprise
+1035,08/05/2023,Elizabeth Green,Keyboard,4,79.99,0.1,287.97,Carol Williams,East,Individual
+1036,08/10/2023,Frank Adams,Mouse,5,24.99,,112.46,David Brown,West,Small Business
+1037,08/15/2023,Dorothy Baker,Laptop,2,1199.99,0.25,1799.98,Alice Smith,North,Enterprise
+1038,08/20/2023,Jeffrey Nelson,Desktop PC,3,1299.50,0.05,3703.48,Bob Johnson,South,Individual
+1039,09/01/2023,Ronald Carter,Tablet,1,399.99,0.2,319.99,Carol Williams,East,Small Business
+1040,09/05/2023,Lisa Mitchell,Monitor,1,279.99,0.1,251.99,David Brown,West,Enterprise
+1041,09/10/2023,Thomas Perez,Keyboard,6,69.99,0.15,356.95,Alice Smith,North,Individual
+1042,09/15/2023,Susan Roberts,Mouse,8,29.99,0.05,227.92,Bob Johnson,South,Small Business
+1043,09/20/2023,Charles Turner,Laptop,1,999.99,,999.99,Carol Williams,East,Enterprise
+1044,10/01/2023,Deborah Phillips,Desktop PC,2,1599.50,0.1,2879.10,David Brown,West,Individual
+1045,10/05/2023,Joseph Campbell,Tablet,2,429.99,0.25,644.97,Alice Smith,North,Small Business
+1046,10/10/2023,Margaret Parker,Monitor,3,289.99,0.05,826.47,Bob Johnson,South,Enterprise
+1047,10/15/2023,William Evans,Keyboard,3,74.99,0.2,179.97,Carol Williams,East,Individual
+1048,10/20/2023,Helen Edwards,Mouse,4,34.99,0.1,125.96,David Brown,West,Small Business
+1049,11/01/2023,Robert Collins,Laptop,1,1099.99,0.15,934.99,Alice Smith,North,Enterprise
+1050,11/05/2023,Dorothy Stewart,Desktop PC,1,1399.50,,1399.50,Bob Johnson,South,Individual
+1051,11/10/2023,Thomas Sanchez,Tablet,1,379.99,0.1,341.99,Carol Williams,East,Small Business
+1052,11/15/2023,Linda Morris,Monitor,2,299.99,0.25,449.98,David Brown,West,Enterprise
+1053,11/20/2023,George Rogers,Keyboard,5,84.99,0.05,403.71,Alice Smith,North,Individual
+1054,12/01/2023,Elizabeth Reed,Mouse,6,19.99,0.2,95.95,Bob Johnson,South,Small Business
+1055,12/05/2023,James Cook,Laptop,2,1299.99,0.1,2339.98,Carol Williams,East,Enterprise
+1056,12/10/2023,Morgan Morgan,Desktop PC,3,1499.50,0.15,3818.73,David Brown,West,Individual
+1057,12/15/2023,Donna Bell,Tablet,3,349.99,0.05,997.47,Alice Smith,North,Small Business
+1058,12/20/2023,Kevin Murphy,Monitor,1,319.99,,319.99,Bob Johnson,South,Enterprise
+1059,12/25/2023,Christopher Bailey,Keyboard,4,89.99,0.25,269.97,Carol Williams,East,Individual
+1060,12/30/2023,Amanda Rivera,Mouse,7,24.99,0.1,157.44,David Brown,West,Small Business

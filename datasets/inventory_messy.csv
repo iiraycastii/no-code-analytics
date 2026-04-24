@@ -1,0 +1,21 @@
+ProductID,ProductName,Category,Quantity,UnitPrice,Supplier,StockLocation,LastRestock,MinStockLevel,Status
+P001,Laptop Pro,Electronics,50,999.99,TechCorp,Warehouse A,2023-10-15,10,In Stock
+P002,Wireless Mouse,Electronics,200,29.99,MouseKing,Warehouse B,10/15/2023,50,In Stock
+P003,Office Chair,Furniture,,149.99,ChairMaster,Warehouse A,,20,Low Stock
+P004,Desk Lamp,Lighting,100,39.99,LightCo,Warehouse C,2023-09-20,,In Stock
+P005,Monitor Stand,Accessories,75,49.99,StandUp,Warehouse B,09/25/2023,15,In Stock
+P006,USB Hub,Electronics,150,24.99,ConnectAll,Warehouse A,2023-10-01,30,In Stock
+P007,Keyboard,Electronics,180,79.99,KeyMaster,,2023-10-05,25,In Stock
+P008,Webcam,Electronics,60,89.99,CamCo,Warehouse C,10/10/2023,20,In Stock
+P009,Headphones,Electronics,90,129.99,SoundWave,Warehouse B,2023-10-12,15,In Stock
+P010,External HDD,Storage,40,79.99,StoragePro,Warehouse A,,25,Low Stock
+P011,Power Strip,Electronics,120,19.99,PowerMax,Warehouse C,2023-10-18,40,In Stock
+P012,HDMI Cable,Electronics,250,12.99,CableKing,Warehouse B,10/20/2023,60,In Stock
+P013,Router,Networking,35,89.99,NetGear,Warehouse A,2023-10-22,10,Low Stock
+P014,Switch,Networking,45,49.99,NetGear,Warehouse C,,20,In Stock
+P015,Printer,Furniture,25,299.99,PrintPro,Warehouse B,2023-10-25,5,Low Stock
+P016,Ink Cartridge,Supplies,200,45.99,PrintPro,Warehouse A,10/28/2023,50,In Stock
+P017,Paper Ream,Supplies,500,8.99,OfficeSup,Warehouse C,2023-10-30,100,In Stock
+P018,Stapler,Supplies,150,15.99,OfficeSup,Warehouse B,,30,In Stock
+P019,Notebook,Supplies,300,5.99,NotebookCo,Warehouse A,2023-11-01,50,In Stock
+P020,Calculator,Electronics,80,25.99,CalcMaster,Warehouse C,11/05/2023,20,In Stock

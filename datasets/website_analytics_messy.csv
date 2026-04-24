@@ -1,0 +1,21 @@
+SessionID,PageURL,Duration,BounceRate,ExitRate,PageViews,UniqueVisitors,Device,Browser,Date,Referrer
+S001,/home,120,0.35,0.42,3,2500,Desktop,Chrome,2023-01-15,Google
+S002,/products,85,0.45,0.55,2,1800,Mobile,Safari,01/20/2023,Direct
+S003,/about,200,0.25,0.30,4,1200,Desktop,Firefox,2023-01-22,Social Media
+S004,/contact,45,0.65,0.75,1,800,Mobile,Chrome,2023-02-01,Email
+S005,/home,150,0.30,0.38,3,2800,Desktop,Chrome,02/15/2023,Google
+S006,/products,95,0.40,0.50,2,1950,Tablet,Safari,2023-02-20,Direct
+S007,/cart,,0.55,0.65,1,950,Mobile,Chrome,03/01/2023,Google
+S008,/checkout,180,0.20,0.25,5,1100,Desktop,Firefox,03/05/2023,Direct
+S009,/home,130,0.32,0.40,3,2600,Desktop,Chrome,03/15/2023,Social Media
+S010,/products,75,0.48,0.58,2,1700,Mobile,Safari,03/20/2023,Google
+S011,/about,220,0.22,0.28,4,1300,Desktop,Firefox,04/01/2023,Direct
+S012,/contact,50,0.60,0.72,1,750,Mobile,Chrome,04/05/2023,Email
+S013,/home,140,0.28,0.35,3,2700,Desktop,Chrome,04/10/2023,Google
+S014,/products,88,0.42,0.52,2,1850,Tablet,Safari,04/15/2023,Social Media
+S015,/cart,60,0.50,0.60,1,900,Mobile,Chrome,04/20/2023,Direct
+S016,/checkout,175,0.18,0.23,5,1050,Desktop,Firefox,05/01/2023,Google
+S017,/home,125,0.30,0.37,3,2550,Desktop,Chrome,05/05/2023,Email
+S018,/products,80,0.44,0.54,2,1750,Mobile,Safari,05/10/2023,Direct
+S019,/about,210,0.24,0.29,4,1250,Desktop,Firefox,05/15/2023,Social Media
+S020,/contact,48,0.62,0.74,1,720,Mobile,Chrome,05/20/2023,Google

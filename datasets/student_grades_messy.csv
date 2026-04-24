@@ -1,0 +1,21 @@
+StudentID,Name,Subject,Grade,Semester,Attendance,Assignment1,Assignment2,FinalExam,Teacher
+S001,Alice Johnson,Math,92,Fall 2023,95,88,90,94,Dr. Smith
+S002,Bob Smith,Science,85,Fall 2023,80,82,88,84,Prof. Johnson
+S003,Carol Williams,History,78,09/2023,75,70,80,82,Prof. Williams
+S004,David Brown,Math,90,Fall 2023,92,85,89,95,Dr. Smith
+S005,Emma Davis,English,88,Fall 2023,,85,90,87,Prof. Davis
+S006,Frank Miller,Science,92,10/2023,90,88,94,93,Prof. Johnson
+S007,Grace Wilson,History,85,Fall 2023,82,78,85,88,Prof. Williams
+S008,Henry Moore,Math,,Fall 2023,88,90,87,89,Dr. Smith
+S009,Ivy Taylor,English,90,Fall 2023,91,88,92,89,Prof. Davis
+S010,Jack Anderson,Science,78,Fall 2023,75,80,72,80,Prof. Johnson
+S011,Kate Thomas,History,92,Fall 2023,94,90,93,92,Prof. Williams
+S012,Liam Jackson,Math,85,Fall 2023,87,82,88,85,Dr. Smith
+S013,Mia White,English,88,Fall 2023,85,90,87,88,Prof. Davis
+S014,Noah Harris,Science,90,Fall 2023,92,88,91,90,Prof. Johnson
+S015,Olivia Martin,History,78,Fall 2023,80,75,80,78,Prof. Williams
+S016,Peter Thompson,Math,92,Fall 2023,93,90,94,92,Dr. Smith
+S017,Quinn Garcia,English,85,Fall 2023,,82,88,85,Prof. Davis
+S018,Ryan Martinez,Science,88,Fall 2023,90,85,89,88,Prof. Johnson
+S019,Sophia Robinson,History,90,Fall 2023,91,88,92,90,Prof. Williams
+S020,Thomas Clark,Math,78,Fall 2023,80,75,80,77,Dr. Smith

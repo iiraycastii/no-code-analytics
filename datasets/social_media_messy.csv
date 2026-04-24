@@ -1,0 +1,21 @@
+PostID,UserID,Platform,Content,Likes,Shares,Comments,Date,Time,Hashtags,Reach
+P001,U001,Twitter,Check out our new product! #launch,150,25,12,2023-01-15,10:30,launch,5000
+P002,U002,Facebook,Great day at the beach,85,10,5,01/20/2023,14:45,,2000
+P003,U003,Instagram,Beautiful sunset photo #nature,320,45,28,2023-01-22,18:20,nature,8000
+P004,U004,Twitter,Excited about the conference #tech,210,35,18,2023-02-01,09:15,tech,6500
+P005,U005,LinkedIn,Just got promoted! #career,450,60,35,02/15/2023,11:30,career,12000
+P006,U006,Instagram,Foodie weekend #food,180,25,15,2023-02-20,12:45,food,4500
+P007,U007,Facebook,Family time is the best,95,12,8,03/01/2023,16:00,,2500
+P008,U008,Twitter,New blog post up! #blog,140,20,10,03/05/2023,08:30,blog,5500
+P009,U009,Instagram,Travel memories #travel,280,40,22,03/15/2023,19:15,travel,7500
+P010,U010,TikTok,Dance challenge #dance,520,85,50,03/20/2023,20:00,dance,15000
+P011,U011,YouTube,New video uploaded #vlog,380,55,30,04/01/2023,15:45,vlog,10000
+P012,U012,Facebook,Weekend vibes #weekend,110,15,9,04/05/2023,13:30,weekend,3000
+P013,U013,Instagram,Fashion inspiration #style,240,35,20,04/10/2023,17:00,style,7000
+P014,U014,Twitter,Market update #finance,190,28,14,04/15/2023,10:15,finance,6000
+P015,U015,TikTok,Comedy skit #funny,480,75,42,04/20/2023,21:30,funny,14000
+P016,U016,LinkedIn,Industry insights #business,410,58,32,05/01/2023,12:00,business,11500
+P017,U017,Instagram,Pet love #pets,160,22,13,05/05/2023,16:45,pets,4200
+P018,U018,Facebook,Morning coffee ☕,75,8,4,05/10/2023,07:30,,1800
+P019,U019,Twitter,Sports update #sports,155,23,11,05/15/2023,11:00,sports,5200
+P020,U020,Instagram,Art showcase #art,200,30,17,05/20/2023,18:30,art,6500

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Visual Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Specific canvas styling for free movement */
+        #canvas-area {
+            position: relative;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .canvas-block {
+            position: absolute;
+            z-index: 10;
+        }
+
+        #connections-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1; 
+        }
+
+        .connection-line {
+            stroke: #7f8c8d;
+            stroke-width: 3;
+        }
+        
+        .header {
+            padding: 0.5rem 1rem;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .upload-area input {
+            display: none;
+        }
+        
+        .upload-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .upload-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .util-btn {
+            background-color: #95a5a6;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .util-btn.active {
+            background-color: #2c3e50;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .canvas-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Connection Highlighting */
+        .canvas-block.connection-source {
+            box-shadow: 0 0 0 3px #4CAF50; /* Green highlight for source */
+            border-color: #4CAF50;
+        }
+
+        /* Preprocessing Visualization Styles */
+        .comparison-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            background: #fdfdfd;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+        
+        .dataset-box {
+            flex: 1;
+            background: white;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        .dataset-box h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.85rem;
+            color: #444;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 4px;
+            text-align: center;
+        }
+        
+        .dataset-box table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.7rem;
+        }
+        
+        .dataset-box th {
+            background-color: #f8f9fa;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        .step-header {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-desc {
+            font-weight: normal; 
+            font-size: 0.8rem;
+            color: #555;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ML Visual Learning</h1>
+        <div class="controls">
+            <div class="upload-area">
+                <input type="file" id="dataset-upload" accept=".csv">
+                <label for="dataset-upload" class="upload-btn">
+                    <i class="fas fa-cloud-upload-alt"></i> Upload Dataset (CSV)
+                </label>
+            </div>
+            
+            <div style="font-size: 0.9em; color: #666; margin-left: 10px;">
+                <i class="fas fa-info-circle"></i> Hold <strong>CTRL</strong> + Click two blocks to connect them
+            </div>
+            
+            <button id="run-pipeline-btn" class="run-btn"><i class="fas fa-play"></i> Run Pipeline</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Panel: Component Library -->
+        <div class="panel left-panel">
+            <h3>Library</h3>
+            <div class="components-list">
+                <!-- Test Datasets Button -->
+                <button id="test-datasets-btn" class="test-datasets-btn">
+                    <i class="fas fa-database"></i> Test Datasets
+                </button>
+
+                <!-- Uploaded Datasets Section -->
+                <h4>Uploaded Datasets</h4>
+                <div id="uploaded-datasets-list" class="components-list">
+                    <!-- Dynamic dataset blocks will appear here -->
+                    <div style="font-size:0.8em; color:#888; padding:5px;">No datasets uploaded yet.</div>
+                </div>
+
+                <h4>Preprocessing</h4>
+                <div class="block-item preprocess" draggable="true" data-type="preprocess" data-method="missing_value_handling">
+                    <i class="fas fa-magic"></i> Missing Value Handling
+                </div>
+                <div class="block-item preprocess" draggable="true" data-type="preprocess" data-method="normalization">
+                    <i class="fas fa-compress-arrows-alt"></i> Normalization
+                </div>
+                <div class="block-item preprocess" draggable="true" data-type="preprocess" data-method="standardization">
+                    <i class="fas fa-ruler"></i> Standardization
+                </div>
+                <div class="block-item preprocess" draggable="true" data-type="preprocess" data-method="categorical_encoder">
+                    <i class="fas fa-tags"></i> Categorical Encoder
+                </div>
+                <div class="block-item preprocess" draggable="true" data-type="preprocess" data-method="value_standardizer">
+                    <i class="fas fa-spell-check"></i> Value Standardizer
+                </div>
+                <div class="block-item preprocess" draggable="true" data-type="preprocess" data-method="feature_selection">
+                    <i class="fas fa-filter"></i> Feature Selection
+                </div>
+
+
+                <h4>ML Algorithms</h4>
+                <div class="block-item algorithm" draggable="true" data-type="algorithm" data-method="linear_regression">
+                    <i class="fas fa-chart-line"></i> Linear Regression
+                </div>
+                <div class="block-item algorithm" draggable="true" data-type="algorithm" data-method="logistic_regression">
+                    <i class="fas fa-code-branch"></i> Logistic Regression
+                </div>
+                <div class="block-item algorithm" draggable="true" data-type="algorithm" data-method="knn">
+                    <i class="fas fa-users"></i> K Nearest Neighbors
+                </div>
+                <div class="block-item algorithm" draggable="true" data-type="algorithm" data-method="decision_tree">
+                    <i class="fas fa-tree"></i> Decision Tree
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel: Workflow Canvas -->
+        <div class="panel center-panel" id="canvas-area">
+            <svg id="connections-layer">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                    refX="10" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                    </marker>
+                </defs>
+            </svg>
+            <div class="canvas-placeholder">Use "Upload Dataset" or drag blocks here</div>
+        </div>
+
+        <!-- Right Panel: Explanation Panel -->
+        <div class="panel right-panel">
+            <style>
+                .tabs { display: flex; margin-bottom: 10px; border-bottom: 1px solid #ddd; }
+                .tab-btn { flex: 1; padding: 10px; border: none; background: #f9f9f9; cursor: pointer; }
+                .tab-btn.active { background: #fff; font-weight: bold; border-bottom: 2px solid #2196f3; }
+                .tab-content { display: none; }
+                .tab-content.active { display: block; }
+                table td, table th { padding: 4px; border: 1px solid #eee; text-align: center; }
+                table th { background: #f5f5f5; }
+            </style>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('details')">Details</button>
+                <button class="tab-btn" onclick="switchTab('visualization')">Visualization</button>
+            </div>
+            
+            <div id="details-content" class="tab-content active">
+                <h3>Block Details</h3>
+                <div id="explanation-content">
+                    <p>Select a block to see its description.</p>
+                </div>
+                <!-- Dataset Info (Dynamic) -->
+                <div id="dataset-info" style="display:none; margin-top:20px; padding-top:20px; border-top:1px solid #eee;">
+                    <h4>Dataset Stats</h4>
+                    <div id="dataset-stats">No dataset loaded.</div>
+                </div>
+            </div>
+
+            <div id="visualization-content" class="tab-content">
+                <h3>Visualization Panel</h3>
+                
+                <!-- Container for Preprocessing Steps -->
+                <div id="preprocessing-visualizations"></div>
+
+                <!-- Final Data Preview (Existing table) -->
+                <h4>Final Processed Data</h4>
+                <div class="table-container" style="overflow:auto; max-height: 500px;">
+                    <table id="data-table" style="width:100%; border-collapse: collapse; font-size:0.8em;">
+                        <thead><tr id="table-header"><th>No Data Available</th></tr></thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset Configuration Modal -->
+    <div id="dataset-config-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Dataset Configuration</h3>
+                <button class="close-modal-btn" onclick="document.getElementById('dataset-config-modal').style.display='none'">&times;</button>
+            </div>
+            
+            <div class="modal-body" style="padding: 15px;">
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:5px;">Learning Type:</label>
+                    <label style="margin-right:15px; cursor:pointer;">
+                        <input type="radio" name="learning-type" value="supervised" checked onchange="toggleConfigMode('supervised')"> Supervised
+                    </label>
+                    <label style="cursor:pointer;">
+                        <input type="radio" name="learning-type" value="unsupervised" onchange="toggleConfigMode('unsupervised')"> Unsupervised
+                    </label>
+                </div>
+
+                <!-- Supervised Section -->
+                <div id="config-supervised" style="display:block;">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; font-weight:bold; margin-bottom:5px;">Target Label (Output/Y):</label>
+                        <select id="config-target-select" style="width:100%; padding:8px; border:1px solid #ddd; border-radius:4px;">
+                            <option value="">Select a column...</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <label style="font-weight:bold;">Features (Input/X):</label>
+                            <div>
+                                <a href="#" onclick="toggleAllDatasetFeatures(true); return false;" style="font-size:0.85em; color:#2196f3; text-decoration:none;">Select All</a> 
+                                <span style="color:#ddd;">|</span> 
+                                <a href="#" onclick="toggleAllDatasetFeatures(false); return false;" style="font-size:0.85em; color:#2196f3; text-decoration:none;">None</a>
+                            </div>
+                        </div>
+                        <div id="config-features-list" style="max-height: 200px; overflow-y: auto; border: 1px solid #eee; padding: 10px; border-radius: 4px;">
+                            <!-- Checkboxes will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unsupervised Section -->
+                <div id="config-unsupervised" style="display:none;">
+                    <div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <label style="font-weight:bold;">Select Columns to Analyze:</label>
+                            <div>
+                                <a href="#" onclick="toggleAllDatasetColumns(true); return false;" style="font-size:0.85em; color:#2196f3; text-decoration:none;">Select All</a> 
+                                <span style="color:#ddd;">|</span> 
+                                <a href="#" onclick="toggleAllDatasetColumns(false); return false;" style="font-size:0.85em; color:#2196f3; text-decoration:none;">None</a>
+                            </div>
+                        </div>
+                        <div id="config-columns-list" style="max-height: 200px; overflow-y: auto; border: 1px solid #eee; padding: 10px; border-radius: 4px;">
+                            <!-- Checkboxes will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; text-align: right;">
+                    <button id="save-config-btn" class="upload-btn" style="border:none;">Apply Configuration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preprocessing Configuration Modal -->
+    <div id="preprocessing-config-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Preprocessing Configuration</h3>
+                <button class="close-modal-btn" onclick="document.getElementById('preprocessing-config-modal').style.display='none'">&times;</button>
+            </div>
+            
+            <div class="modal-body" style="padding: 15px;">
+                <p style="color:#666; font-size:0.9em; margin-bottom:15px;">Select the columns to apply this transformation to.</p>
+                
+                <div style="margin-bottom:15px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                        <label style="font-weight:bold;">Columns:</label>
+                        <div>
+                            <button onclick="toggleAllPreproc(true)" style="background:none; border:none; color:#2196f3; cursor:pointer; font-size:0.9em;">Select All</button> | 
+                            <button onclick="toggleAllPreproc(false)" style="background:none; border:none; color:#2196f3; cursor:pointer; font-size:0.9em;">None</button>
+                        </div>
+                    </div>
+                    <div id="preprocess-columns-list" style="max-height:250px; overflow-y:auto; border:1px solid #ddd; padding:10px; border-radius:4px;">
+                        <!-- Checkboxes populated by JS -->
+                    </div>
+                </div>
+
+                <div style="text-align:right;">
+                    <button class="upload-btn" onclick="document.getElementById('preprocessing-config-modal').style.display='none'" style="background:#888; margin-right:5px;">Cancel</button>
+                    <button class="upload-btn" id="save-preprocess-config-btn" style="border:none;">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Missing Value Handler Configuration Modal -->
+    <div id="missing-value-config-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Missing Value Handler</h3>
+                <button class="close-modal-btn" onclick="document.getElementById('missing-value-config-modal').style.display='none'">&times;</button>
+            </div>
+            
+            <div class="modal-body" style="padding: 15px;">
+                <p style="font-size:0.9em; color:#666; margin-bottom:15px;">Choose how to handle missing values (NaN, None, empty cells) in your dataset.</p>
+                
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:5px;">Target Columns:</label>
+                    <div id="missing-val-cols-list" style="max-height:100px; overflow-y:auto; border:1px solid #ddd; padding:5px; border-radius:4px; font-size:0.9em;">
+                        <!-- Checkboxes for cols -->
+                    </div>
+                    <div style="font-size:0.8em; color:#888; margin-top:3px;">Uncheck to skip specific columns.</div>
+                </div>
+
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:10px;">Imputation Strategy:</label>
+                    
+                    <div class="strategy-option" style="margin-bottom:8px;">
+                        <input type="radio" id="strat-mean" name="impute-strat" value="mean" checked>
+                        <label for="strat-mean" style="margin-left:5px;">Mean (Average)</label>
+                        <div style="font-size:0.8em; color:#666; margin-left:25px;">Best for normal numeric data without outliers.</div>
+                    </div>
+                    
+                    <div class="strategy-option" style="margin-bottom:8px;">
+                        <input type="radio" id="strat-median" name="impute-strat" value="median">
+                        <label for="strat-median" style="margin-left:5px;">Median (Middle Value)</label>
+                        <div style="font-size:0.8em; color:#666; margin-left:25px;">Good for data with outliers.</div>
+                    </div>
+
+                    <div class="strategy-option" style="margin-bottom:8px;">
+                        <input type="radio" id="strat-mode" name="impute-strat" value="mode">
+                        <label for="strat-mode" style="margin-left:5px;">Mode (Most Frequent)</label>
+                        <div style="font-size:0.8em; color:#666; margin-left:25px;">Best for categorical data.</div>
+                    </div>
+                    
+                    <div class="strategy-option" style="margin-bottom:8px;">
+                        <input type="radio" id="strat-remove" name="impute-strat" value="remove">
+                        <label for="strat-remove" style="margin-left:5px;">Remove Rows</label>
+                        <div style="font-size:0.8em; color:#666; margin-left:25px;">Delete any row containing missing values.</div>
+                    </div>
+                    
+                     <div class="strategy-option" style="margin-bottom:8px;">
+                        <input type="radio" id="strat-custom" name="impute-strat" value="custom">
+                        <label for="strat-custom" style="margin-left:5px;">Custom Value</label>
+                        <input type="text" id="strat-custom-val" placeholder="0" style="width:60px; margin-left:10px; padding:2px;" disabled>
+                    </div>
+                </div>
+
+                <div style="text-align:right; margin-top:20px;">
+                    <button class="upload-btn" onclick="document.getElementById('missing-value-config-modal').style.display='none'" style="background:#888; margin-right:5px;">Cancel</button>
+                    <button class="upload-btn" id="save-missing-val-btn" style="border:none;">Save Configuration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Value Standardizer Configuration Modal -->
+    <div id="standardizer-config-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Value Standardizer Configuration</h3>
+                <button class="close-modal-btn" onclick="document.getElementById('standardizer-config-modal').style.display='none'">&times;</button>
+            </div>
+            
+            <div class="modal-body" style="padding: 15px;">
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:5px;">Select Column:</label>
+                    <select id="std-col-select" style="width:100%; padding:8px; border:1px solid #ddd; border-radius:4px;">
+                        <option value="">Select a column...</option>
+                    </select>
+                </div>
+                
+                <div id="std-mapping-section" style="display:none;">
+                    <label style="display:block; font-weight:bold; margin-bottom:10px;">Define Standard Values:</label>
+                    <p style="font-size:0.8em; color:#666; margin-bottom:10px;">Select inconsistent values and type their replacement.</p>
+                    <div style="max-height: 250px; overflow-y: auto; border: 1px solid #eee; padding: 10px; border-radius: 4px; background: #fafafa;">
+                        <table style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:left; padding-bottom:5px;">Original Value</th>
+                                    <th style="text-align:left; padding-bottom:5px;">Standard Value</th>
+                                    <th style="width:30px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="std-mapping-list">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="text-align:right; margin-top:15px;">
+                    <button class="upload-btn" onclick="document.getElementById('standardizer-config-modal').style.display='none'" style="background:#888; margin-right:5px;">Cancel</button>
+                    <button class="upload-btn" id="save-std-config-btn" style="border:none;">Apply Replacements</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Categorical Encoder Configuration Modal -->
+    <div id="categorical-config-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Categorical Encoding Configuration</h3>
+                <button class="close-modal-btn" onclick="document.getElementById('categorical-config-modal').style.display='none'">&times;</button>
+            </div>
+            
+            <div class="modal-body" style="padding: 15px;">
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; font-weight:bold; margin-bottom:5px;">Select Column:</label>
+                    <select id="cat-encoder-col-select" style="width:100%; padding:8px; border:1px solid #ddd; border-radius:4px;">
+                        <option value="">Select a column...</option>
+                    </select>
+                </div>
+                
+                <div id="cat-mapping-section" style="display:none;">
+                    <label style="display:block; font-weight:bold; margin-bottom:10px;">Assign Numeric Values:</label>
+                    <div style="max-height: 250px; overflow-y: auto; border: 1px solid #eee; padding: 10px; border-radius: 4px; background: #fafafa;">
+                        <table style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:left; padding-bottom:5px;">Original Value</th>
+                                    <th style="text-align:left; padding-bottom:5px;">Numeric Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cat-mapping-list">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="text-align:right; margin-top:15px;">
+                    <button class="upload-btn" onclick="document.getElementById('categorical-config-modal').style.display='none'" style="background:#888; margin-right:5px;">Cancel</button>
+                    <button class="upload-btn" id="save-cat-config-btn" style="border:none;">Apply Mapping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test Datasets Modal -->
+    <div id="test-datasets-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Select Test Dataset</h3>
+                <button class="close-modal-btn" id="close-test-datasets-btn">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="test-datasets-list">
+                    <!-- Test datasets will be loaded here -->
+                    <div class="loading-message">
+                        <i class="fas fa-spinner fa-spin"></i> Loading test datasets...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dataset Viewer Modal -->
+    <div id="dataset-viewer-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="viewer-title">Dataset: filename.csv</h3>
+                <button class="close-modal-btn" id="close-viewer-btn">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="selection-toolbar">
+                    <div class="input-group">
+                        <label>Range:</label>
+                        <input type="text" id="range-input" placeholder="A1:C10">
+                        <button class="toolbar-btn" id="apply-range-btn">Select</button>
+                    </div>
+                    
+                    <div class="input-group" style="margin-left: 10px; padding-left: 10px; border-left: 1px solid #ddd;">
+                        <input type="text" id="row-input" placeholder="Row 10">
+                        <button class="toolbar-btn secondary" id="select-row-btn">Select Row</button>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" id="col-input" placeholder="Col C">
+                        <button class="toolbar-btn secondary" id="select-col-btn">Select Column</button>
+                    </div>
+                    
+                    <div style="flex:1"></div>
+                    <button class="toolbar-btn export-btn" id="export-part-btn"><i class="fas fa-file-export"></i> Export Selection</button>
+                </div>
+                
+                <div class="dataset-table-container">
+                    <table id="dataset-full-table" class="excel-table">
+                        <!-- Dynamic Content -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/canvas.js') }}"></script>
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            if(tabName === 'details') {
+                document.getElementById('details-content').classList.add('active');
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            } else {
+                document.getElementById('visualization-content').classList.add('active');
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            }
+        }
+
+        // Toggle Config Mode for Dataset Modal
+        window.toggleConfigMode = function(mode) {
+             const sup = document.getElementById('config-supervised');
+             const unsup = document.getElementById('config-unsupervised');
+             if (mode === 'supervised') {
+                 if(sup) sup.style.display = 'block';
+                 if(unsup) unsup.style.display = 'none';
+             } else {
+                 if(sup) sup.style.display = 'none';
+                 if(unsup) unsup.style.display = 'block';
+             }
+        }
+    </script>
+</body>
+</html>

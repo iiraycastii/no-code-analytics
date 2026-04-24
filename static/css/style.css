@@ -1,0 +1,826 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.run-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.run-btn:hover {
+    background-color: #27ae60;
+}
+
+.test-datasets-btn {
+    width: 100%;
+    background-color: #9b59b6;
+    color: white;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.test-datasets-btn:hover {
+    background-color: #8e44ad;
+}
+
+.test-datasets-btn i {
+    font-size: 1rem;
+}
+
+/* Dataset Delete Button */
+.dataset-block {
+    position: relative !important;
+}
+
+.dataset-delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+    line-height: 1;
+}
+
+.dataset-block:hover .dataset-delete-btn {
+    opacity: 1;
+}
+
+.dataset-delete-btn:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
+
+.dataset-delete-btn:active {
+    transform: scale(0.95);
+}
+
+.dataset-content {
+    padding-right: 25px; /* Space for delete button */
+}
+
+/* Test Dataset Modal Styles */
+.test-dataset-item {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 5px solid #9b59b6;
+    position: relative;
+    overflow: hidden;
+}
+
+.test-dataset-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #9b59b6, #8e44ad);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.test-dataset-item:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-color: #9b59b6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(155, 89, 182, 0.15);
+}
+
+.test-dataset-item:hover::before {
+    opacity: 1;
+}
+
+.test-dataset-item.selected {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    border-color: #9b59b6;
+    border-left-width: 6px;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.2);
+}
+
+.test-dataset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.test-dataset-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.test-dataset-name::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #9b59b6;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.test-dataset-type {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(155, 89, 182, 0.2);
+}
+
+.test-dataset-description {
+    color: #5a6c7d;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.test-dataset-info {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding-top: 8px;
+    border-top: 1px solid #f1f3f4;
+}
+
+.test-dataset-info span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.test-dataset-info i {
+    color: #9b59b6;
+    font-size: 0.85rem;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Ensure scrolling happens inside panels if needed */
+    height: calc(100vh - 64px); /* Adjust based on header height */
+}
+
+.panel {
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+/* Left Panel: Component Library */
+.left-panel {
+    width: 20%;
+    background-color: #fafafa;
+}
+
+.components-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.block-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.block-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.block-item:active {
+    cursor: grabbing;
+}
+
+/* Center Panel: Workflow Canvas */
+.center-panel {
+    width: 60%;
+    background-color: #f5f5f5;
+    position: relative; /* For absolute positioning of dropped items if desired */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 20px;
+    background-image: radial-gradient(#ddd 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.canvas-placeholder {
+    color: #999;
+    font-style: italic;
+    margin-top: 50px;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* Right Panel: Explanation Panel */
+.right-panel {
+    width: 20%;
+    background-color: #fafafa;
+    border-left: 1px solid #e0e0e0;
+    border-right: none;
+}
+
+#explanation-content {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    min-height: 200px;
+}
+
+.explanation-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Styles for dropped blocks in the canvas */
+.canvas-block {
+    position: absolute; /* Changed from relative for drag/drop */
+    background-color: #fff;
+    border: 2px solid #3498db;
+    padding: 15px 25px;
+    border-radius: 8px;
+    min-width: 200px;
+    max-width: 350px;
+    width: auto;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.delete-block-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the X icon */
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 20;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.delete-block-btn:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
+
+.canvas-block.selected {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+
+/* Connection line (simple implementation) */
+.connection-line {
+    width: 2px;
+    height: 20px;
+    background-color: #7f8c8d;
+    margin: 0;
+}
+
+/* Block specific colors (optional) */
+.block-item[data-type="dataset"] { border-left: 5px solid #e67e22; }
+.block-item[data-type="preprocessing"] { border-left: 5px solid #f1c40f; }
+.block-item[data-type="model"] { border-left: 5px solid #9b59b6; }
+.block-item[data-type="train"] { border-left: 5px solid #e74c3c; }
+.block-item[data-type="predict"] { border-left: 5px solid #2ecc71; }
+
+.canvas-block[data-type="dataset"] { border-color: #e67e22; }
+.canvas-block[data-type="preprocessing"] { border-color: #f1c40f; }
+.canvas-block[data-type="model"] { border-color: #9b59b6; }
+.canvas-block[data-type="train"] { border-color: #e74c3c; }
+.canvas-block[data-type="predict"] { border-color: #2ecc71; }
+
+.delete-block-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 20;
+}
+
+.canvas-block:hover .delete-block-btn {
+    opacity: 1;
+}
+
+.canvas-block {
+    position: absolute; /* Ensure blocks are positioned absolutely for drag */
+    /* existing styles... */
+}
+
+
+/* New Block Types */
+.block-item.preprocess {
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+    color: #0d47a1;
+}
+
+.block-item.algorithm {
+    background: #e8f5e9;
+    border: 2px solid #4caf50;
+    color: #1b5e20;
+}
+
+/* Also apply to canvas blocks for consistency if added by JS class */
+.canvas-block.preprocess {
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+    color: #0d47a1;
+}
+
+.canvas-block.algorithm {
+    background: #e8f5e9;
+    border: 2px solid #4caf50;
+    color: #1b5e20;
+}
+
+
+/* Dataset Block Styles */
+.block-item.dataset-block {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+    color: #e65100;
+    font-size: 0.9em;
+    word-break: break-all;
+}
+
+.canvas-block.dataset {
+    background: #fff3e0 !important;
+    border-color: #ff9800 !important;
+    color: #e65100 !important;
+}
+
+
+.stats-card {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+.stats-table th, .stats-table td {
+    border-bottom: 1px solid #eee;
+    padding: 6px;
+    text-align: left;
+}
+.stats-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    color: #555;
+}
+.section-header {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+
+/* Dataset Viewer Modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.modal-body {
+    flex: 1;
+    padding: 0;
+    overflow-y: auto;
+}
+
+/* Test Datasets Modal Specific Styles */
+#test-datasets-modal .modal-content {
+    max-width: 650px;
+    max-height: 75vh;
+}
+
+#test-datasets-list {
+    padding: 20px;
+    max-height: calc(75vh - 80px); /* Account for header and padding */
+    overflow-y: auto;
+}
+
+#test-datasets-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#test-datasets-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#test-datasets-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#test-datasets-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Loading and Empty States */
+.loading-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.loading-message i {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.empty-message i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #dc3545;
+}
+
+.error-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #dc3545;
+    font-size: 1rem;
+}
+
+.error-message i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #777;
+}
+
+.modal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+}
+
+.selection-toolbar {
+    padding: 10px 20px;
+    background-color: #f1f3f5;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-group input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.toolbar-btn {
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.toolbar-btn:hover {
+    background-color: #2980b9;
+}
+
+.toolbar-btn.secondary {
+    background-color: #95a5a6;
+}
+
+.toolbar-btn.secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.export-btn {
+    background-color: #27ae60;
+}
+
+.export-btn:hover {
+    background-color: #219150;
+}
+
+.dataset-table-container {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    padding: 0;
+}
+
+.excel-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: max-content;
+    min-width: 100%;
+}
+
+.excel-table th, .excel-table td {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Column Letters Row (A, B, C...) */
+.excel-table .column-letters-row th {
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 0.65rem;
+    color: #6c757d;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+}
+
+/* Column Names Row */
+.excel-table .column-names-row th {
+    background-color: #e9ecef;
+    position: sticky;
+    top: 20px;
+    z-index: 1;
+    font-weight: 600;
+    color: #495057;
+    padding: 6px 8px;
+}
+
+/* Corner Cells */
+.excel-table .corner-cell {
+    background-color: #f1f3f4 !important;
+    font-weight: 600;
+    color: #6c757d;
+    min-width: 40px;
+}
+
+/* Row Numbers Column (1, 2, 3...) */
+.excel-table td:first-child, .excel-table th:first-child {
+    background-color: #f8f9fa;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    border-right: 2px solid #ccc;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    width: 40px;
+    min-width: 40px;
+}
+
+/* Top-Left Corner */
+.excel-table .column-letters-row th:first-child {
+    z-index: 4 !important;
+}
+
+.excel-table .column-names-row th:first-child {
+    z-index: 3 !important;
+}
+
+/* Selection Hightlight */
+.excel-table td.selected-cell {
+    background-color: rgba(52, 152, 219, 0.2);
+    border: 1px double #3498db;
+}
+
+
+/* Styles for the modal content */
+.modal-overlay .modal-content {
+    background: white;
+    width: 90%;
+    height: 90%; /* Occupy most of screen */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.modal-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.modal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dataset-table-container {
+    flex: 1;
+    overflow: auto;
+}
+
+.selection-toolbar {
+    padding: 10px;
+    background: #f1f3f5;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.exported-dataset {
+    background-color: #e3f2fd !important;
+    border: 2px solid #2196f3 !important;
+}
+

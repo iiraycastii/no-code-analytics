@@ -1,0 +1,21 @@
+FeedbackID,CustomerID,ProductID,Rating,Comment,Date,Category,Sentiment,VerifiedPurchase
+F001,C001,P001,5,Excellent product, highly recommend!,2023-01-15,Electronics,Positive,Yes
+F002,C002,P002,4,Good quality but shipping was slow,01/20/2023,Electronics,Neutral,Yes
+F003,C003,P003,3,Decent for the price,2023-01-22,Furniture,Neutral,Yes
+F004,C004,P004,2,Broken on arrival, very disappointed,2023-02-01,Electronics,Negative,No
+F005,C005,P005,5,Works perfectly, love it!,02/15/2023,Electronics,Positive,Yes
+F006,C006,P006,4,Great value for money,2023-02-20,Electronics,Neutral,Yes
+F007,C007,P007,,Amazing sound quality,03/01/2023,Electronics,Positive,Yes
+F008,C008,P008,3,Does the job but nothing special,03/05/2023,Storage,Neutral,Yes
+F009,C009,P009,2,Stopped working after a week,03/15/2023,Electronics,Negative,No
+F010,C010,P010,5,Perfect for my setup,03/20/2023,Electronics,Positive,Yes
+F011,C011,P011,4,Good performance, easy setup,04/01/2023,Networking,Neutral,Yes
+F012,C012,P012,3,Average quality,04/05/2023,Networking,Neutral,Yes
+F013,C013,P013,1,Worst purchase ever,04/10/2023,Furniture,Negative,No
+F014,C014,P014,4,Reliable product,04/15/2023,Supplies,Positive,Yes
+F015,C015,P015,5,Exactly what I needed,04/20/2023,Supplies,Positive,Yes
+F016,C016,P016,3,Okay but could be better,05/01/2023,Supplies,Neutral,Yes
+F017,C017,P017,2,Not worth the price,05/05/2023,Supplies,Negative,No
+F018,C018,P018,4,Solid build quality,05/10/2023,Electronics,Neutral,Yes
+F019,C019,P019,5,Fast shipping, great product,05/15/2023,Electronics,Positive,Yes
+F020,C020,P020,3,Works as expected,05/20/2023,Electronics,Neutral,Yes

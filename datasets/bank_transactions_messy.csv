@@ -1,0 +1,21 @@
+TransactionID,AccountID,Date,Description,Amount,Type,Balance,Merchant,Category
+T001,ACC001,2023-01-15,Grocery Store,-85.50,Debit,5420.50,Walmart,Groceries
+T002,ACC002,01/20/2023,Salary Deposit,3500.00,Credit,8500.00,Employer,Income
+T003,ACC001,2023-01-22,Electric Bill,-120.75,Debit,5299.75,UtilityCo,Utilities
+T004,ACC003,,Gas Station,-45.00,Debit,2100.00,Shell,Transport
+T005,ACC002,2023-02-01,Restaurant,-65.30,Debit,8434.70,McDonalds,Food
+T006,ACC001,02/15/2023,Online Purchase,-199.99,Debit,5099.76,Amazon,Shopping
+T007,ACC003,2023-02-20,ATM Withdrawal,-200.00,Debit,1900.00,Bank ATM,Cash
+T008,ACC002,03/01/2023,Insurance,-150.00,Debit,8284.70,InsuranceCo,Insurance
+T009,ACC001,03/05/2023,Coffee Shop,-12.50,Debit,5087.26,Starbucks,Food
+T010,ACC003,,Rent Payment,-1200.00,Debit,700.00,Landlord,Housing
+T011,ACC002,2023-03-15,Gym Membership,-45.00,Debit,8239.70,Fitness Plus,Health
+T012,ACC001,03/20/2023,Salary Deposit,4200.00,Credit,9287.26,Employer,Income
+T013,ACC003,04/01/2023,Pharmacy,-35.75,Debit,664.25,CVS,Health
+T014,ACC002,04/05/2023,Netflix Subscription,-15.99,Debit,8223.71,Netflix,Entertainment
+T015,ACC001,2023-04-10,Phone Bill,-85.00,Debit,9202.26,TelCo,Utilities
+T016,ACC003,04/15/2023,Grocery Store,-92.40,Debit,571.85,Kroger,Groceries
+T017,ACC002,04/20/2023,Cash Deposit,500.00,Credit,8723.71,Bank ATM,Cash
+T018,ACC001,05/01/2023,Restaurant,-78.25,Debit,9124.01,Olive Garden,Food
+T019,ACC003,05/05/2023,Electric Bill,-135.50,Debit,436.35,UtilityCo,Utilities
+T020,ACC002,05/10/2023,Online Purchase,-250.00,Debit,8473.71,eBay,Shopping
