@@ -5,7 +5,6 @@ import csv
 import math
 from werkzeug.utils import secure_filename
 
-# Add the 'algorithms' and 'preprocessing' folders to the python path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'algorithms'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'preprocessing'))
 
@@ -25,13 +24,11 @@ app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'datasets'
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
-# Global storage for uploaded dataset (simplified for this demo)
 global_data = {
     "X": [],
     "y": []
 }
 
-# Route for loading the main dashboard
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -52,7 +49,6 @@ def upload_dataset():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
             
-            # Parse CSV to get stats and cache it (optional, mainly for stats display)
             X = []
             y = []
             
